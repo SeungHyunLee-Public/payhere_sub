@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borrou - Manage</title>
+   <body>   
+    {% include './navigation.html' %}
+        <section class="home-main-section background-gray">
+            <div class="home-hot-content">
+                <h1 class="home-main-title text-center home-hot-title" style="margin-bottom: 35px;">
+                    대여해준 물건
+                </h1>
+                <div class="cards-wrap">
+                    {% if accountbooks %}
+                        {% for accountbooks in accountbooks %}
+                            <article class="card-top ">
+                                <a class="card-link " data-event-label="474702600" href="{% url 'my_log_detail' accountbooks.ident%}">
+                                    <!-- <div class="card-photo ">
+                                        <img alt="다혼 자전거 판매합니다" src="https://dnvefa72aowie.cloudfront.net/origin/article/202210/83cbd5362a585918a9b4a7354984ecbfb20208da27522d9b39579099b2cfe1f9.webp?q=82&amp;s=300x300&amp;t=crop">
+                                    </div> -->
+                                    <div class="card-desc">
+                                        <h2 class="card-title">제목: {{ accountbooks.title }}</h2> 
+                                        <div class="card-price ">
+                                            사용금액: {{ accountbooks.used_money }}원
+                                        </div>
+                                        <div class="card-counts">
+                                            <span>분류: {{ accountbooks.categorie }}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </article>
+                        {% endfor %}
+                    {% else %}
+                        <h1>빌려준 물건이 없습니다</h1>
+                    {% endif %}
+                </article>
+            </div>
+        </section>
+    </body>
+</html>

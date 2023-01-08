@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>회원가입</title>
+    </head>
+    <body id="page-top">
+        
+        <!-- Login Section -->
+        <body>
+            {% include './navigation.html' %}
+            <header class="sign-in">
+                <h2>회원가입</h2>
+                <ul>
+                    <form method="POST" action="{%url 'sign_up'%}">
+                    {% csrf_token %}
+                        <li>
+                            <input required id="email" type="text" placeholder="이메일" name="email"/>
+                        </li>
+                        <li>
+                            <input required id="username" type="text" placeholder="이 름" name="username"/>
+                        </li>
+                        <li>
+                            <input required id="password" type="password" placeholder="비밀번호" minlength="10" maxlength="14" name="password"/>
+                            <div id="passwordError" class="error"></div>
+                        </li>
+                        <li>
+                            <input required id="passwordcheck" type="password" placeholder="비밀번호 확인" minlength="10" maxlength="14" name="passwordcheck"/>
+                            <div id="passwordCheckError" class="error"></div>
+                        </li>
+                        <li>
+                            <input type="submit" class="btn btn-primary" value="회원가입" />
+                        </li>
+                        
+                    </form>
+                </ul>
+            </header>
+        </body>
+</html>

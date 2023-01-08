@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      {% include './all.html' %}
+        <title>borr0u - edit_article</title>
+    </head>
+    <body id="page-top">
+      {% include './navigation.html' %}
+        <!-- Login Section -->
+        <body>
+            <header class="regist">
+                <h2>상품정보수정</h2>
+                <ul>
+                    <form method="POST" action="{%url 'edit_my_log' accountbooks.ident %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <li>
+                            <input required id="title" type="text" placeholder="상품이름" name="title" required/>
+                        </li>
+                        <li>
+                            <select name="categorie" required>
+                                <option value="카테고리">카테고리</option>
+                                <option value="의류">의류</option>
+                                <option value="주방">주방</option>
+                                <option value="가전">가전</option>
+                                <option value="전자기기">전자기기</option>
+                                <option value="책">책</option>
+                                <option value="기타">기타</option>
+                            </select>
+                        </li>
+                        <li>
+                            <input required id="memo" type="text" placeholder="메모" name="memo" style="height: 200px;" required/>
+                        </li>
+                        <li>
+                            <input required id="used_money" type="text" placeholder="사용금액" name="used_money" required/>
+                        </li>
+                        <div style="display: flex;">
+                            <li style="margin-right: 30px;">
+                                <input style="width: 170px;" required id="reg_date" type="date" placeholder="등록날짜" name="reg_date" required/>
+                            </li>
+                        </div>
+                        <li>
+                            <input type="submit" class="btn btn-primary" value="등록하기"/>
+                        </li>
+                    </form>
+                </ul>
+            </header>
+        </body>
+    </body>
+</html>

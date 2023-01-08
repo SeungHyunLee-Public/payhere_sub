@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include './all.html' %}
+        <title>borr0u - mypage</title>
+    </head>
+    <body id="page-top">
+        {% include './navigation.html' %}
+        <body style="padding-top: 75px;">
+            <header class="regist">
+                <h2>마이페이지</h2>
+                <ul>
+                    <form method="POST" action="{%url 'mypage'%}">
+                        {% for authusers in authusers %}                    
+                        <li>
+                            <h>사용자아이디</h>
+                            <div style="border: 0.5px solid black; padding: 10px">
+                            {{authusers.username}}</div>
+                        </li>   
+                        <li>
+                            <h>이메일</h>
+                            <div style="border: 0.5px solid black; padding: 10px">
+                            {{authusers.email}}</div>
+                        </li> 
+                        <li><a href="{% url 'my_log' %}">내 가계부 보기</a></li>  
+                        <li><a href="{% url 'login' %}">로그아웃</a></li>
+                        {% endfor %}
+                    </form>
+                </ul>
+            </header>
+        </body>
+    </body>
+</html>
